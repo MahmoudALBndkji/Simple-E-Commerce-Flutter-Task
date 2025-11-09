@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
 import 'package:simple_ecommerce_flutter_task/core/manager/language_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/theme_cubit.dart';
+import 'package:simple_ecommerce_flutter_task/features/splash/views/splash_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -28,7 +29,6 @@ class MyApp extends StatelessWidget {
               ),
             );
           }
-
           final themeData = themeState is ThemeLight
               ? themeState.themeData
               : (themeState as ThemeDark).themeData;
@@ -65,68 +65,11 @@ class MyApp extends StatelessWidget {
                 themeMode: themeData.brightness == Brightness.light
                     ? ThemeMode.light
                     : ThemeMode.dark,
-                // home: const SizedBox(),
-                home: const TestScreen(),
+                home: const SplashView(),
               );
             },
           );
         },
-      ),
-    );
-  }
-}
-
-class TestScreen extends StatelessWidget {
-  const TestScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final themeCubit = context.read<ThemeCubit>();
-    final languageCubit = context.read<LanguageCubit>();
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("test_word".tr(context)),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-              ),
-              onPressed: () {
-                final newLang = currentLangAr() ? "en" : "ar";
-                languageCubit.changeLanguage(newLang);
-              },
-              child: Text(
-                "change_lanuage".tr(context),
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-              ),
-              onPressed: () {
-                if (themeCubit.state is ThemeLight) {
-                  themeCubit.setTheme(true);
-                } else {
-                  themeCubit.setTheme(false);
-                }
-              },
-              child: const Text(
-                "Change Theme",
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
