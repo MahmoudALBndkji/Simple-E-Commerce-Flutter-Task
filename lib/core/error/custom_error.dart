@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
 import '../utils/assets.dart';
 
 customError() {
@@ -26,8 +26,6 @@ customError() {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "هناك خطأ ما",
-                  // if you want to show main message error cancel comment below
-                  // details.exception.toString(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: whiteColor,

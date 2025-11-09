@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:http/http.dart' as http;
-import '../constants/constants.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/status_code.dart';
 import 'strings.dart';
 import '../languages/app_localizations.dart';
 
@@ -31,16 +30,16 @@ class ServerFailure extends Failure {
   }
   factory ServerFailure.fromResponse(http.Response response) {
     switch (response.statusCode) {
-      case StatusCodes.BAD_REQUEST:
-      case StatusCodes.UNAUTHORIZED_USER:
-      case StatusCodes.UNKNOWN_ERROR:
+      case StatusCode.BAD_REQUEST:
+      case StatusCode.UNAUTHORIZED_USER:
+      case StatusCode.UNKNOWN_ERROR:
         final jsonResponse = json.decode(response.body);
         return ServerFailure(jsonResponse['error']['message']);
-      case StatusCodes.NOT_FOUND:
+      case StatusCode.NOT_FOUND:
         return ServerFailure(isArabic()
             ? ErrorMessageArabic.NotFoundFailure
             : ErrorMessageEnglish.NotFoundFailure);
-      case StatusCodes.SERVER_ERROR:
+      case StatusCode.SERVER_ERROR:
         return ServerFailure(isArabic()
             ? ErrorMessageArabic.InteralServerFailure
             : ErrorMessageEnglish.InteralServerFailure);

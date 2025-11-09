@@ -1,4 +1,17 @@
 {
-    "test_word": "Test Word",
+    "login": "Login",
+    "loading": "Loading ...",
+    "error": "Error",
+    "username": "Username",
+    "enter_username": "Enter Username",
+    "username_validation": "Username is required",
+    "password": "Password",
+    "enter_password": "Enter Password",
+    "password_validation": "Password is required",
+    "operation_success": "The operation succeeded",
+    "done": "Done",
+    "login_successfully": "Login is Successfully",
+    "dont_have_an_account": "Don't have an account ?",
+    "register": "Register",
     "change_lanuage": "Change Language"
 }

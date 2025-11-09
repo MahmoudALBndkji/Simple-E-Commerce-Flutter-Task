@@ -1,7 +1,7 @@
-import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
-import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
 import 'package:flutter/material.dart';
-import '../../languages/app_localizations.dart';
+import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
+import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
 
 class CustomButton extends StatelessWidget {
   final Color backgroundColor;
@@ -41,7 +41,7 @@ class CustomButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             text.tr(context),
-            style: TextStyles.font14SecondaryMedium(context).copyWith(
+            style: TextStyles.font14BlackSemiBold(context).copyWith(
               color: textColor,
               fontWeight: FontWeight.w600,
               fontSize: fontSize,

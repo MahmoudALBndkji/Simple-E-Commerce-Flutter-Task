@@ -1,4 +1,17 @@
 {
-    "test_word": "تجربة كلمة",
+    "login": "تسجيل الدخول",
+    "loading": "جاري التحميل ...",
+    "error": "خطأ",
+    "username": "اسم المستخدم",
+    "enter_username": "أدخل اسم المستخدم",
+    "username_validation": "اسم المستخدم مطلوب",
+    "password": "كلمة المرور",
+    "enter_password": "أدخل كلمة المرور",
+    "password_validation": "كلمة المرور مطلوبة",
+    "operation_success": "تم العملية بنجاح",
+    "done": "تم",
+    "login_successfully": "تم تسجيل الدخول بنجاح",
+    "dont_have_an_account": "ليس لديك حساب ؟",
+    "register": "إنشاء حساب",
     "change_lanuage": "تغيير اللغة"
 }

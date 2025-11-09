@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
-import '../constants/constants.dart';
 import '../languages/app_localizations.dart';
-import '../utils/assets.dart';
+import 'package:simple_ecommerce_flutter_task/core/utils/assets.dart';
+import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/dimensions.dart';
 
 class Unavaliable extends StatelessWidget {
   const Unavaliable({super.key});
@@ -25,7 +25,7 @@ class Unavaliable extends StatelessWidget {
             Text(
               "unavailable_at_moment".tr(context),
               textAlign: TextAlign.center,
-              style: TextStyles.font20SimilarBlac2kBold(context),
+              style: TextStyles.font20PrimaryBold(context),
             )
           ],
         ),

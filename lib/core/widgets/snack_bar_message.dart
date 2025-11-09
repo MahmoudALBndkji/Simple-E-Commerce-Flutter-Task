@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
-import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
 import '../languages/app_localizations.dart';
+import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
 
 void customSnackBar({
   required BuildContext context,

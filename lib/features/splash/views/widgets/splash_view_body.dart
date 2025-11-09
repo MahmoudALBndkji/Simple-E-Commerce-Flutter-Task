@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/local/cache_helper.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
+import 'package:simple_ecommerce_flutter_task/features/auth/views/login_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/splash/views/widgets/sliding_logo.dart';
 import 'package:simple_ecommerce_flutter_task/features/splash/views/widgets/sliding_text.dart';
 
@@ -75,7 +76,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         context,
         userIsLoggedIn
             ? const SizedBox(key: Key('homeScreen'))
-            : const SizedBox(key: Key('loginScreen')),
+            : const LoginView(),
       );
     });
   }

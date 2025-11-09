@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/dimensions.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
 import 'package:simple_ecommerce_flutter_task/core/utils/assets.dart';
 

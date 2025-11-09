@@ -26,7 +26,7 @@ class NotFoundWidget extends StatelessWidget {
         Text(
           message.tr(context),
           textAlign: TextAlign.center,
-          style: TextStyles.font20SimilarBlackBold(context).copyWith(
+          style: TextStyles.font20PrimaryBold(context).copyWith(
             color: Color(0xFF757575),
           ),
         ),

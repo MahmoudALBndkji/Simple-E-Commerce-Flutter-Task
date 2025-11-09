@@ -30,7 +30,7 @@ class ApiService {
     bool changeFullUrl = false,
   }) async {
     try {
-      _initHeaders();
+      await _initHeaders();
       Uri url = Uri.parse(changeFullUrl ? endPoint : "$baseUrl/$endPoint");
       switch (requestType) {
         case RequestType.GET:
@@ -41,8 +41,11 @@ class ApiService {
           }
         case RequestType.POST:
           {
-            final response = await http.post(url,
-                headers: headers ?? _headers, body: json.encode(parameter));
+            final response = await http.post(
+              url,
+              headers: headers ?? _headers,
+              body: json.encode(parameter),
+            );
             Logger.log("End Point : $endPoint");
             Logger.log("Response Body : ${response.body}");
             Logger.log("Parameters : ${json.encode(parameter)}");
@@ -66,7 +69,7 @@ class ApiService {
     }
   }
 
-  void _initHeaders() async {
+  Future<void> _initHeaders() async {
     Logger.log("Token: ${await CacheHelper.instance.read(key: "token")}");
     _headers = {
       "Content-Type": "application/json",
@@ -74,8 +77,9 @@ class ApiService {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "X-Requested-With",
       "Access-Control-Allow-Methods": "POST, OPTIONS, GET",
-      "Authorization":
-          "Bearer  ${await CacheHelper.instance.read(key: "token") ?? ""}",
+      if (await CacheHelper.instance.read(key: "token") != null)
+        "Authorization":
+            "Bearer ${await CacheHelper.instance.read(key: "token") ?? ""}",
     };
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
 
 class TextFieldWithTitle extends StatelessWidget {
   const TextFieldWithTitle({
@@ -47,13 +47,13 @@ class TextFieldWithTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyles.font14GreyLight(context),
+          style: TextStyles.font18TextGreyRegular(context),
         ),
         SizedBox(height: 6),
         TextFormField(
           focusNode: focusNode,
           textInputAction: textInputAction,
-          style: TextStyles.font14SimilarLightBlackRegular(context),
+          style: TextStyles.font16BlackRegular(context),
           enableInteractiveSelection: enableInteractiveSelection,
           readOnly: readOnly,
           initialValue: initalValue,
@@ -71,12 +71,12 @@ class TextFieldWithTitle extends StatelessWidget {
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
             hintText: hint,
-            hintStyle: TextStyles.font14GreyRegular(context),
-            labelStyle: TextStyles.font14SimilarLightBlackRegular(context),
+            hintStyle: TextStyles.font14TextGreyRegular(context),
+            labelStyle: TextStyles.font16BlackRegular(context),
             border: buildBorder(),
             enabledBorder: buildBorder(),
             focusedBorder: buildBorder(isFocus: true),
-            errorStyle: TextStyles.font14ErrorRegular(context),
+            errorStyle: TextStyles.font14ErrorBold(context),
           ),
         ),
       ],
@@ -85,7 +85,7 @@ class TextFieldWithTitle extends StatelessWidget {
 
   OutlineInputBorder buildBorder({bool isFocus = false}) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20.0),
+      borderRadius: BorderRadius.circular(10.0),
       borderSide:
           BorderSide(color: isFocus ? Color(0xff00BFFF) : Color(0xff808080)),
     );
