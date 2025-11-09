@@ -4,7 +4,7 @@
     <application
         android:allowBackup="false"
         android:fullBackupContent="false"
-        android:label="Simple ECommerce"
+        android:label="Simple E-Commerce"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
