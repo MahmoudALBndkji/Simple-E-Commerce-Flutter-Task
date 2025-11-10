@@ -41,5 +41,6 @@
     "upload_image": "رفع الصورة",
     "take_picture_from_camera": "أخذ الصورة من الكاميرا",
     "pick_pictures_from_gallery": "اختيار الصور من المعرض",
-    "field_validation": "يجب أن يكون هذا الحقل ليس فارغًا"
+    "field_validation": "يجب أن يكون هذا الحقل ليس فارغًا",
+    "no_results": "لا يوجد نتائج"
 }

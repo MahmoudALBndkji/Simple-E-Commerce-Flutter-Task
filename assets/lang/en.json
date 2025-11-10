@@ -41,5 +41,6 @@
     "upload_image": "Upload Image",
     "take_picture_from_camera": "Take Picture from Camera",
     "pick_pictures_from_gallery": "Pick Pictures from Gallery",
-    "field_validation": "This field is required"
+    "field_validation": "This field is required",
+    "no_results": "No Results"
 }

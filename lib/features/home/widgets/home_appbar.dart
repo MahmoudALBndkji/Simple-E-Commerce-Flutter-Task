@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
 import 'package:simple_ecommerce_flutter_task/core/utils/action_theme_icon.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/widgets/product_search_delegate.dart';
 
 class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppbar({super.key});
@@ -24,13 +25,13 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
               ? IconButton(
                   icon: Icon(Icons.search),
                   onPressed: () {
-                    // showSearch(
-                    //   context: context,
-                    //   delegate: ProductSearchDelegate(
-                    //     productsGroup,
-                    //     HomeCubit.get(context),
-                    //   ),
-                    // );
+                    showSearch(
+                      context: context,
+                      delegate: ProductSearchDelegate(
+                        products: hCubit.visibleProducts,
+                        homeCubit: hCubit,
+                      ),
+                    );
                   },
                 )
               : null,
