@@ -13,5 +13,8 @@
     "login_successfully": "تم تسجيل الدخول بنجاح",
     "dont_have_an_account": "ليس لديك حساب ؟",
     "register": "إنشاء حساب",
-    "change_lanuage": "تغيير اللغة"
+    "change_lanuage": "تغيير اللغة",
+    "products": "المنتجات",
+    "cart": "السلة",
+    "settings": "الإعدادات"
 }

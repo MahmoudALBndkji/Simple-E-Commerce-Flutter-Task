@@ -13,5 +13,8 @@
     "login_successfully": "Login is Successfully",
     "dont_have_an_account": "Don't have an account ?",
     "register": "Register",
-    "change_lanuage": "Change Language"
+    "change_lanuage": "Change Language",
+    "products": "Products",
+    "cart": "Cart",
+    "settings": "Settings"
 }

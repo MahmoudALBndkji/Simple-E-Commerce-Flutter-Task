@@ -9,6 +9,8 @@ import 'package:simple_ecommerce_flutter_task/core/utils/logo_animation_loading.
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/view_model/authentication_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/views/widgets/auth_button.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/layout/home_layout.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({
@@ -58,7 +60,13 @@ class LoginButton extends StatelessWidget {
           );
           Future.delayed(const Duration(milliseconds: 1000), () async {
             Navigator.pop(context);
-            navigateAndRemoveUntil(context, SizedBox(key: Key("homeView")));
+            navigateAndRemoveUntil(
+              context,
+              BlocProvider(
+                create: (context) => HomeCubit(),
+                child: const HomeLayout(),
+              ),
+            );
           });
         }
       },
