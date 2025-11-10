@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
@@ -7,6 +6,7 @@ import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.d
 import 'package:simple_ecommerce_flutter_task/core/log/logger.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/check_is_success.dart';
 import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
+import 'package:simple_ecommerce_flutter_task/features/cart/views/cart_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/model/product_model.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/views/products_view.dart';
 
@@ -25,7 +25,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   List<Widget> screens = [
     const ProductsView(),
-    const SizedBox(), // const CartPage(),
+    const CartView(),
     const SizedBox(), // const SettingsPage(),
   ];
   List<String> titles(BuildContext context) => [

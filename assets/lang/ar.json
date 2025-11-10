@@ -16,5 +16,13 @@
     "change_lanuage": "تغيير اللغة",
     "products": "المنتجات",
     "cart": "السلة",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "add_to_cart": "إضافة للسلة",
+    "checkout_successfully": "تم الدفع بنجاح",
+    "checkout": "الدفع",
+    "item_price": "سعر المنتج",
+    "delete": "حذف",
+    "payment_summary": "ملخص الدفع",
+    "numbers_of_products": "عدد المنتجات",
+    "total_amount": "المبلغ الكلي"
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/dimensions.dart';
 import 'package:simple_ecommerce_flutter_task/core/utils/assets.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/model/product_model.dart';
@@ -74,10 +75,10 @@ class ProductCard extends StatelessWidget {
                 duration: const Duration(milliseconds: 300),
                 height: 36,
                 decoration: BoxDecoration(
-                  color: const Color(0x1A000000),
+                  color: primaryColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(9),
                   border: Border.all(
-                    color: const Color(0xFFA9A9A9),
+                    color: primaryColor.withValues(alpha: 0.7),
                     width: 1.5,
                   ),
                 ),

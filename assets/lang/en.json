@@ -16,5 +16,13 @@
     "change_lanuage": "Change Language",
     "products": "Products",
     "cart": "Cart",
-    "settings": "Settings"
+    "settings": "Settings",
+    "add_to_cart": "Add to Cart",
+    "checkout_successfully": "Checkout successfully",
+    "checkout": "Checkout",
+    "item_price": "Item Price",
+    "delete": "Delete",
+    "payment_summary": "Payment Summary",
+    "numbers_of_products": "Numbers of Products",
+    "total_amount": "Total Amount"
 }
