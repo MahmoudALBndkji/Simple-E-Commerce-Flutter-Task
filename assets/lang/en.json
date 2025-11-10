@@ -28,8 +28,18 @@
     "all": "All",
     "product_details": "Product Details",
     "price": "Price",
+    "enter_price": "Enter Price",
     "category": "Category",
     "change_theme": "Change Theme",
     "add_product_to_store": "Add Product to Store",
-    "logout": "Logout"
+    "logout": "Logout",
+    "title": "Title",
+    "enter_title": "Enter Title",
+    "description": "Description",
+    "enter_description": "Enter Description",
+    "enter_category": "Enter Category",
+    "upload_image": "Upload Image",
+    "take_picture_from_camera": "Take Picture from Camera",
+    "pick_pictures_from_gallery": "Pick Pictures from Gallery",
+    "field_validation": "This field is required"
 }

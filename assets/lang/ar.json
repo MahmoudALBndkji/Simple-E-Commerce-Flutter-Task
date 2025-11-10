@@ -28,8 +28,18 @@
     "all": "الكل",
     "product_details": "تفاصيل المنتج",
     "price": "السعر",
+    "enter_price": "أدخل السعر",
     "category": "الفئة",
     "change_theme": "تغيير السمة",
     "add_product_to_store": "إضافة منتج إلى المتجر",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "title": "العنوان",
+    "enter_title": "أدخل العنوان",
+    "description": "الوصف",
+    "enter_description": "أدخل الوصف",
+    "enter_category": "أدخل الفئة",
+    "upload_image": "رفع الصورة",
+    "take_picture_from_camera": "أخذ الصورة من الكاميرا",
+    "pick_pictures_from_gallery": "اختيار الصور من المعرض",
+    "field_validation": "يجب أن يكون هذا الحقل ليس فارغًا"
 }

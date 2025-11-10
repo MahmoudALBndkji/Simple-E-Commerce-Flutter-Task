@@ -7,6 +7,7 @@ import 'package:simple_ecommerce_flutter_task/core/network/local/cache_helper.da
 import 'package:simple_ecommerce_flutter_task/core/theme/theme_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/views/login_view.dart';
+import 'package:simple_ecommerce_flutter_task/features/settings/views/add_product_to_store_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/settings/views/widgets/settings_card_item.dart';
 import 'package:simple_ecommerce_flutter_task/features/settings/views/widgets/settings_divider.dart';
 
@@ -109,19 +110,19 @@ class _SettingsViewState extends State<SettingsView>
                         SettingsCardItem(
                           icon: Icons.color_lens_outlined,
                           title: "change_theme",
-                          onTap: () {
-                            if (themeCubit.state is ThemeLight) {
-                              themeCubit.setTheme(true);
-                            } else {
-                              themeCubit.setTheme(false);
-                            }
-                          },
+                          onTap: () => themeCubit.setTheme(
+                              themeCubit.state is ThemeLight ? true : false),
                         ),
                         settingsDivider(),
                         SettingsCardItem(
                           icon: Icons.add_circle_outline,
                           title: "add_product_to_store",
-                          onTap: () {},
+                          onTap: () => Navigator.push(
+                            context,
+                            SizeTransitionToBottom(
+                              AddProductToStoreView(),
+                            ),
+                          ),
                         ),
                         settingsDivider(),
                         SettingsCardItem(
