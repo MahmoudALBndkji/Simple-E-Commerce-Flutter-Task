@@ -18,13 +18,7 @@ class SettingsCubit extends Cubit<SettingsState> {
       context: context,
       requestType: RequestType.POST,
       endPoint: Endpoints.addProductToStore,
-      parameter: {
-        'title': product.title,
-        'price': product.price,
-        'description': product.description,
-        'category': product.category,
-        'image': product.image,
-      },
+      parameter: product.toJson(),
     );
     if (checkReqIsSuccess(response.statusCode)) {
       emit(AddProductToStoreSuccessState());
