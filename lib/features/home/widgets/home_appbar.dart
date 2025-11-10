@@ -21,18 +21,20 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
             style: TextStyles.font24TextGreyBold(context)
                 .copyWith(color: Colors.white),
           ),
-          actions: [
-            BlocBuilder<ThemeCubit, ThemeState>(
-              builder: (context, themeState) {
-                return IconButton(
-                  icon: Icon(themeState is ThemeLight
-                      ? Icons.dark_mode
-                      : Icons.light_mode),
-                  onPressed: onThemePressed,
-                );
-              },
-            )
-          ],
+          actions: hCubit.screenIndex != 2
+              ? [
+                  BlocBuilder<ThemeCubit, ThemeState>(
+                    builder: (context, themeState) {
+                      return IconButton(
+                        icon: Icon(themeState is ThemeLight
+                            ? Icons.dark_mode
+                            : Icons.light_mode),
+                        onPressed: onThemePressed,
+                      );
+                    },
+                  )
+                ]
+              : null,
         );
       },
     );
