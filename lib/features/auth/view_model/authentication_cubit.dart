@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
+import 'package:simple_ecommerce_flutter_task/core/log/logger.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/check_is_success.dart';
 import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/local/cache_helper.dart';
@@ -42,7 +43,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         );
       }
     }).catchError((error) {
-      debugPrint(error);
+      Logger.error(error.toString());
       emit(LoginErrorState(errorMessage: error.toString()));
     });
   }

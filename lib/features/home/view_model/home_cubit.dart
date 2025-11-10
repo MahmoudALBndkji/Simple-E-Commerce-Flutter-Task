@@ -1,12 +1,20 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
+import 'package:simple_ecommerce_flutter_task/core/log/logger.dart';
+import 'package:simple_ecommerce_flutter_task/core/network/check_is_success.dart';
+import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/model/product_model.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/views/products_view.dart';
 
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(HomeInitial());
+  HomeCubit({required this.service}) : super(HomeInitial());
+  final ApiService service;
   static HomeCubit get(context) => BlocProvider.of(context);
   int screenIndex = 0;
 
@@ -16,9 +24,8 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   List<Widget> screens = [
-    const SizedBox(), // const ProductsScreen(),
+    const ProductsView(),
     const SizedBox(), // const CartPage(),
-    const SizedBox(), // const ProfilePage(),
     const SizedBox(), // const SettingsPage(),
   ];
   List<String> titles(BuildContext context) => [
@@ -28,6 +35,31 @@ class HomeCubit extends Cubit<HomeState> {
       ];
 
   final List<ProductModel> products = [];
+
+  void getAllProducts({required BuildContext context}) async {
+    emit(GetAllProductsLoadingState());
+    await service
+        .requestApi(
+      context: context,
+      requestType: RequestType.GET,
+      endPoint: Endpoints.getAllProducts,
+    )
+        .then((value) async {
+      if (checkReqIsSuccess(value.statusCode)) {
+        final List<ProductModel> productsList = [];
+        final decodedJson = jsonDecode(value.body);
+        for (var element in decodedJson) {
+          productsList.add(ProductModel.fromJson(element));
+        }
+        emit(GetAllProductsSuccessState(products: productsList));
+      } else {
+        emit(GetAllProductsErrorState(error: value.body));
+      }
+    }).catchError((error) {
+      Logger.error(error.toString());
+      emit(GetAllProductsErrorState(error: error.toString()));
+    });
+  }
 
   double getTotalPrice() {
     double totalPrice = 0;

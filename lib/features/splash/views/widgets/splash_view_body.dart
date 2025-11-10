@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/local/cache_helper.dart';
+import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/views/login_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/layout/home_layout.dart';
@@ -79,7 +80,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         context,
         userIsLoggedIn
             ? BlocProvider(
-                create: (context) => HomeCubit(),
+                create: (context) => HomeCubit(service: ApiService()),
                 child: const HomeLayout(),
               )
             : const LoginView(),

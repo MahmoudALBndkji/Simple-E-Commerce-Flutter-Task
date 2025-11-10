@@ -5,6 +5,7 @@ import 'package:quickalert/models/quickalert_animtype.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
+import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
 import 'package:simple_ecommerce_flutter_task/core/utils/logo_animation_loading.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/view_model/authentication_cubit.dart';
@@ -63,7 +64,7 @@ class LoginButton extends StatelessWidget {
             navigateAndRemoveUntil(
               context,
               BlocProvider(
-                create: (context) => HomeCubit(),
+                create: (context) => HomeCubit(service: ApiService()),
                 child: const HomeLayout(),
               ),
             );
