@@ -111,6 +111,29 @@ class HomeCubit extends Cubit<HomeState> {
     emit(GetAllProductsSuccessState(products: visibleProducts));
   }
 
+  void getProductDetails(
+      {required BuildContext context, required int productId}) async {
+    emit(GetProductDetailsLoadingState());
+    await service
+        .requestApi(
+      context: context,
+      requestType: RequestType.GET,
+      endPoint: "${Endpoints.getProductDetails}/$productId",
+    )
+        .then((value) async {
+      if (checkReqIsSuccess(value.statusCode)) {
+        final decodedJson = jsonDecode(value.body);
+        emit(GetProductDetailsSuccessState(
+            product: ProductModel.fromJson(decodedJson)));
+      } else {
+        emit(GetAllProductsErrorState(error: value.body));
+      }
+    }).catchError((error) {
+      Logger.error(error.toString());
+      emit(GetProductDetailsErrorState(error: error.toString()));
+    });
+  }
+
   double getTotalPrice() {
     double totalPrice = 0;
     for (ProductModel product in products) {

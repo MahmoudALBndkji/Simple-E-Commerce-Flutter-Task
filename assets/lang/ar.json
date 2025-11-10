@@ -25,5 +25,8 @@
     "payment_summary": "ملخص الدفع",
     "numbers_of_products": "عدد المنتجات",
     "total_amount": "المبلغ الكلي",
-    "all": "الكل"
+    "all": "الكل",
+    "product_details": "تفاصيل المنتج",
+    "price": "السعر",
+    "category": "الفئة"
 }

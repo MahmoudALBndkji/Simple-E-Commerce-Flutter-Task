@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
-import 'package:simple_ecommerce_flutter_task/core/theme/theme_cubit.dart';
+import 'package:simple_ecommerce_flutter_task/core/utils/action_theme_icon.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
 
 class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -22,7 +22,7 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
           ),
           leading: hCubit.screenIndex == 0
               ? IconButton(
-                  icon: Icon(Icons.search, color: Colors.white),
+                  icon: Icon(Icons.search),
                   onPressed: () {
                     // showSearch(
                     //   context: context,
@@ -34,18 +34,7 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
                   },
                 )
               : null,
-          actions: [
-            BlocBuilder<ThemeCubit, ThemeState>(
-              builder: (context, state) {
-                return IconButton(
-                  icon: Icon(
-                    state is ThemeLight ? Icons.dark_mode : Icons.light_mode,
-                  ),
-                  onPressed: () => context.read<ThemeCubit>().toggleTheme(),
-                );
-              },
-            ),
-          ],
+          actions: actionThemeIcon,
         );
       },
     );

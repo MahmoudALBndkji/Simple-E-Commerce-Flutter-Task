@@ -47,7 +47,7 @@ class ProductCounter extends StatelessWidget {
               product.quantity.toString(),
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
           ),

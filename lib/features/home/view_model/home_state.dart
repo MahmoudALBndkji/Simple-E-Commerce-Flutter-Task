@@ -22,6 +22,18 @@ final class GetAllProductsErrorState extends HomeState {
   GetAllProductsErrorState({required this.error});
 }
 
+final class GetProductDetailsLoadingState extends HomeState {}
+
+final class GetProductDetailsSuccessState extends HomeState {
+  final ProductModel product;
+  GetProductDetailsSuccessState({required this.product});
+}
+
+final class GetProductDetailsErrorState extends HomeState {
+  final String error;
+  GetProductDetailsErrorState({required this.error});
+}
+
 class AddProductState extends HomeState {}
 
 class RemoveProductState extends HomeState {}

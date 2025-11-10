@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/dimensions.dart';
 import 'package:simple_ecommerce_flutter_task/core/utils/assets.dart';
+import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/model/product_model.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/views/product_deatails_view.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.product});
@@ -16,16 +18,15 @@ class ProductCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () {},
-          // () => Navigator.push(
-          //   context,
-          //   SizeTransitionToTop(
-          //     ProductDetailsScreen(
-          //       currentProduct: product,
-          //       homeCubit: context.read<HomeCubit>(),
-          //     ),
-          //   ),
-          // ),
+          onTap: () => Navigator.push(
+            context,
+            SizeTransitionToTop(
+              ProductDeatailsView(
+                productId: product.id ?? 0,
+                homeCubit: context.read<HomeCubit>(),
+              ),
+            ),
+          ),
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(

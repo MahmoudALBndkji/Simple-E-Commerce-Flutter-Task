@@ -33,6 +33,7 @@ class ThemeLight extends ThemeState {
             backgroundColor: Color(0xFF2196F3),
             elevation: 0,
             centerTitle: true,
+            iconTheme: IconThemeData(color: Colors.black),
           ),
         );
 }
@@ -66,6 +67,7 @@ class ThemeDark extends ThemeState {
             backgroundColor: Color(0xFF121212),
             elevation: 0,
             centerTitle: true,
+            iconTheme: IconThemeData(color: Colors.white),
           ),
         );
 }

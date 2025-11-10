@@ -25,5 +25,8 @@
     "payment_summary": "Payment Summary",
     "numbers_of_products": "Numbers of Products",
     "total_amount": "Total Amount",
-    "all": "All"
+    "all": "All",
+    "product_details": "Product Details",
+    "price": "Price",
+    "category": "Category"
 }

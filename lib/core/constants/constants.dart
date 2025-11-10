@@ -6,5 +6,5 @@ class Endpoints {
   static const String userLogin = 'auth/login';
   static const String getAllProducts = 'products';
   static const String addNewProduct = 'products';
-  static const String getProduct = 'products';
+  static const String getProductDetails = 'products';
 }
