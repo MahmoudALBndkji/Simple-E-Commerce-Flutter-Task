@@ -34,7 +34,7 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
                   },
                 )
               : null,
-          actions: actionThemeIcon,
+          actions: hCubit.screenIndex != 2 ? actionThemeIcon : null,
         );
       },
     );

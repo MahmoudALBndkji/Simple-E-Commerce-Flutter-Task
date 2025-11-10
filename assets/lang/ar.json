@@ -28,5 +28,8 @@
     "all": "الكل",
     "product_details": "تفاصيل المنتج",
     "price": "السعر",
-    "category": "الفئة"
+    "category": "الفئة",
+    "change_theme": "تغيير السمة",
+    "add_product_to_store": "إضافة منتج إلى المتجر",
+    "logout": "تسجيل الخروج"
 }

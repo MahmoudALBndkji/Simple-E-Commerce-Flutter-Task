@@ -31,6 +31,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       if (checkReqIsSuccess(value.statusCode)) {
         final token = jsonDecode(value.body)["token"];
         if (token != null) {
+          await CacheHelper.instance.write(key: "username", value: username);
           await CacheHelper.instance.write(key: "token", value: token);
         }
         await CacheHelper.instance.write(key: "isLogin", value: "true");

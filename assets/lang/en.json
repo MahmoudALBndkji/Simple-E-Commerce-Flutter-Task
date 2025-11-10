@@ -28,5 +28,8 @@
     "all": "All",
     "product_details": "Product Details",
     "price": "Price",
-    "category": "Category"
+    "category": "Category",
+    "change_theme": "Change Theme",
+    "add_product_to_store": "Add Product to Store",
+    "logout": "Logout"
 }

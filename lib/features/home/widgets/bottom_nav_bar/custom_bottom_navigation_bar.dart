@@ -17,7 +17,8 @@ Widget customBottomNavigationBar() {
           currentIndex: hCubit.screenIndex,
           onTap: (index) => hCubit.changeScreenIndex(index),
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.blue.withValues(alpha: 0.65),
+          backgroundColor:
+              Theme.of(context).bottomNavigationBarTheme.backgroundColor,
           elevation: 0,
           showSelectedLabels: true,
           showUnselectedLabels: true,
@@ -27,7 +28,7 @@ Widget customBottomNavigationBar() {
             BottomNavigationBarItem(
               icon: CustomNavItem(
                 isSelected: hCubit.screenIndex == 0,
-                icon: Icons.category_sharp,
+                icon: Icons.home_outlined,
               ),
               label: "products".tr(context),
             ),

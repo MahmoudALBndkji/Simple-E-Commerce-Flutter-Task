@@ -35,6 +35,11 @@ class ThemeLight extends ThemeState {
             centerTitle: true,
             iconTheme: IconThemeData(color: Colors.black),
           ),
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Color(0xFF2196F3),
+            elevation: 0,
+            selectedItemColor: Colors.white,
+          ),
         );
 }
 
@@ -68,6 +73,11 @@ class ThemeDark extends ThemeState {
             elevation: 0,
             centerTitle: true,
             iconTheme: IconThemeData(color: Colors.white),
+          ),
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Color(0xFF121212),
+            elevation: 0,
+            selectedItemColor: Colors.white,
           ),
         );
 }

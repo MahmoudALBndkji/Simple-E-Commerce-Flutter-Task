@@ -9,6 +9,7 @@ import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
 import 'package:simple_ecommerce_flutter_task/features/cart/views/cart_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/model/product_model.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/views/products_view.dart';
+import 'package:simple_ecommerce_flutter_task/features/settings/views/settings_view.dart';
 
 part 'home_state.dart';
 
@@ -26,7 +27,7 @@ class HomeCubit extends Cubit<HomeState> {
   List<Widget> screens = [
     const ProductsView(),
     const CartView(),
-    const SizedBox(), // const SettingsPage(),
+    const SettingsView(),
   ];
   List<String> titles(BuildContext context) => [
         "products".tr(context),

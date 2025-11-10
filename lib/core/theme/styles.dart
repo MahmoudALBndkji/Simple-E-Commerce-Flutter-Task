@@ -368,9 +368,9 @@ abstract class TextStyles {
     );
   }
 
-  static TextStyle font14ErrorBold(BuildContext context) {
+  static TextStyle font16ErrorBold(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
       color: cancelledColor,
       fontWeight: FontWeightHelper.bold,
     );
