@@ -24,5 +24,6 @@
     "delete": "حذف",
     "payment_summary": "ملخص الدفع",
     "numbers_of_products": "عدد المنتجات",
-    "total_amount": "المبلغ الكلي"
+    "total_amount": "المبلغ الكلي",
+    "all": "الكل"
 }

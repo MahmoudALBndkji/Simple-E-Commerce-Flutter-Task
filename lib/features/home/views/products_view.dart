@@ -7,6 +7,7 @@ import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.d
 import 'package:simple_ecommerce_flutter_task/features/home/model/product_model.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/widgets/product_card.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/widgets/category_filter_chips.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ProductsView extends StatefulWidget {
@@ -50,18 +51,27 @@ class _ProductsViewState extends State<ProductsView> {
             : List.generate(8, (_) => ProductModel());
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          child: GridView.builder(
-            itemCount: products.length,
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200,
-              childAspectRatio: 1.2 / 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 20,
-            ),
-            itemBuilder: (context, index) => Skeletonizer(
-              enabled: isLoading,
-              child: ProductCard(product: products[index]),
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CategoryFilterChips(),
+              const SizedBox(height: 12),
+              Expanded(
+                child: GridView.builder(
+                  itemCount: products.length,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    childAspectRatio: 1.2 / 2,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 20,
+                  ),
+                  itemBuilder: (context, index) => Skeletonizer(
+                    enabled: isLoading,
+                    child: ProductCard(product: products[index]),
+                  ),
+                ),
+              ),
+            ],
           ),
         );
       },

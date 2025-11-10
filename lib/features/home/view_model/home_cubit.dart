@@ -34,9 +34,20 @@ class HomeCubit extends Cubit<HomeState> {
         "settings".tr(context),
       ];
 
+  final List<ProductModel> _fetchedProducts = [];
+  final List<ProductModel> _filteredProducts = [];
+  final List<String> _categories = [];
+  String _selectedCategory = returnAllCategoryKey();
+
+  List<ProductModel> get visibleProducts =>
+      List.unmodifiable(_filteredProducts);
+  List<String> get availableCategories => List.unmodifiable(_categories);
+  String get selectedCategory => _selectedCategory;
+
   final List<ProductModel> products = [];
 
   void getAllProducts({required BuildContext context}) async {
+    _selectedCategory = returnAllCategoryKey();
     emit(GetAllProductsLoadingState());
     await service
         .requestApi(
@@ -51,7 +62,23 @@ class HomeCubit extends Cubit<HomeState> {
         for (var element in decodedJson) {
           productsList.add(ProductModel.fromJson(element));
         }
-        emit(GetAllProductsSuccessState(products: productsList));
+        _fetchedProducts
+          ..clear()
+          ..addAll(productsList);
+        _categories
+          ..clear()
+          ..addAll(
+            _fetchedProducts
+                .map((p) => p.category ?? "")
+                .where((c) => c.isNotEmpty)
+                .toSet()
+                .toList()
+              ..sort(),
+          );
+        _filteredProducts
+          ..clear()
+          ..addAll(_fetchedProducts);
+        emit(GetAllProductsSuccessState(products: visibleProducts));
       } else {
         emit(GetAllProductsErrorState(error: value.body));
       }
@@ -59,6 +86,29 @@ class HomeCubit extends Cubit<HomeState> {
       Logger.error(error.toString());
       emit(GetAllProductsErrorState(error: error.toString()));
     });
+  }
+
+  void selectCategory(String? category, String allKey) {
+    final next = (category == null || category.trim().isEmpty)
+        ? allKey
+        : category.trim();
+    _selectedCategory = next;
+    if (_selectedCategory.toLowerCase() == allKey.toLowerCase()) {
+      _filteredProducts
+        ..clear()
+        ..addAll(_fetchedProducts);
+    } else {
+      _filteredProducts
+        ..clear()
+        ..addAll(
+          _fetchedProducts.where(
+            (p) =>
+                (p.category ?? "").toLowerCase() ==
+                _selectedCategory.toLowerCase(),
+          ),
+        );
+    }
+    emit(GetAllProductsSuccessState(products: visibleProducts));
   }
 
   double getTotalPrice() {
@@ -113,3 +163,5 @@ class HomeCubit extends Cubit<HomeState> {
     emit(ClearProductsCartState());
   }
 }
+
+String returnAllCategoryKey() => currentLangAr() ? "الكل" : "All";

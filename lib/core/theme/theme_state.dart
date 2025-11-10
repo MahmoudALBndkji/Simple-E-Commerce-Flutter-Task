@@ -20,6 +20,9 @@ class ThemeLight extends ThemeState {
             secondary: const Color(0xFF64B5F6),
             surface: Colors.white,
           ),
+          textTheme: TextTheme(
+            bodyMedium: TextStyle(color: Colors.black),
+          ),
           cardTheme: CardTheme(
             elevation: 2,
             shape: RoundedRectangleBorder(
@@ -48,6 +51,9 @@ class ThemeDark extends ThemeState {
             primary: Color(0xFF1976D2),
             secondary: Color(0xFF64B5F6),
             surface: Color(0xFF1E1E1E),
+          ),
+          textTheme: TextTheme(
+            bodyMedium: TextStyle(color: Colors.white),
           ),
           cardTheme: CardTheme(
             elevation: 2,

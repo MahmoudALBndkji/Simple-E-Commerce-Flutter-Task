@@ -19,7 +19,6 @@ class ProductsListItemInCartView extends StatelessWidget {
           ),
         );
       },
-      // separatorBuilder: (context, index) => const SizedBox(height: 1.0),
       separatorBuilder: (context, index) => Divider(
         color: primaryColor.withValues(alpha: 0.7),
         height: 5.0,
