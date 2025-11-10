@@ -38,7 +38,7 @@
     "description": "الوصف",
     "enter_description": "أدخل الوصف",
     "enter_category": "أدخل الفئة",
-    "upload_image": "رفع الصورة",
+    "upload_image": "رفع\nالصورة",
     "take_picture_from_camera": "أخذ الصورة من الكاميرا",
     "pick_pictures_from_gallery": "اختيار الصور من المعرض",
     "field_validation": "يجب أن يكون هذا الحقل ليس فارغًا",

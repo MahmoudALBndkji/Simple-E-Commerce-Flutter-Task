@@ -38,7 +38,7 @@
     "description": "Description",
     "enter_description": "Enter Description",
     "enter_category": "Enter Category",
-    "upload_image": "Upload Image",
+    "upload_image": "Upload\nImage",
     "take_picture_from_camera": "Take Picture from Camera",
     "pick_pictures_from_gallery": "Pick Pictures from Gallery",
     "field_validation": "This field is required",

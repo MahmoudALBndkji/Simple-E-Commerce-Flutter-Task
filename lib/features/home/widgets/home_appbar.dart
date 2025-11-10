@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
-import 'package:simple_ecommerce_flutter_task/core/utils/action_theme_icon.dart';
+import 'package:simple_ecommerce_flutter_task/core/theme/theme_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
-import 'package:simple_ecommerce_flutter_task/features/home/widgets/product_search_delegate.dart';
 
 class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppbar({super.key});
+  final VoidCallback onThemePressed;
+  const HomeAppbar({super.key, required this.onThemePressed});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        final HomeCubit hCubit = HomeCubit.get(context);
+        final hCubit = HomeCubit.get(context);
         return AppBar(
           elevation: 2,
           centerTitle: true,
@@ -21,21 +21,18 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
             style: TextStyles.font24TextGreyBold(context)
                 .copyWith(color: Colors.white),
           ),
-          leading: hCubit.screenIndex == 0
-              ? IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    showSearch(
-                      context: context,
-                      delegate: ProductSearchDelegate(
-                        products: hCubit.visibleProducts,
-                        homeCubit: hCubit,
-                      ),
-                    );
-                  },
-                )
-              : null,
-          actions: hCubit.screenIndex != 2 ? actionThemeIcon : null,
+          actions: [
+            BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, themeState) {
+                return IconButton(
+                  icon: Icon(themeState is ThemeLight
+                      ? Icons.dark_mode
+                      : Icons.light_mode),
+                  onPressed: onThemePressed,
+                );
+              },
+            )
+          ],
         );
       },
     );

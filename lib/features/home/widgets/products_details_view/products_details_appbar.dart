@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
-import 'package:simple_ecommerce_flutter_task/core/utils/action_theme_icon.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
 
 class ProductsDetailsAppbar extends StatelessWidget
@@ -17,7 +16,6 @@ class ProductsDetailsAppbar extends StatelessWidget
         style: TextStyles.font24TextGreyBold(context)
             .copyWith(color: Colors.white),
       ),
-      actions: actionThemeIcon,
     );
   }
 

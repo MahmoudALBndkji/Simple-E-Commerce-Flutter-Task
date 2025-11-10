@@ -57,7 +57,7 @@ class AddProductToStoreButton extends StatelessWidget {
           current is AddProductToStoreErrorState,
       builder: (context, state) => Center(
         child: CustomElevatedButton(
-          buttonColor: successColor.withValues(alpha: 0.8),
+          buttonColor: primaryColor.withValues(alpha: 0.7),
           text: "add_product_to_store".tr(context),
           function: () {
             if (formKey.currentState!.validate()) {

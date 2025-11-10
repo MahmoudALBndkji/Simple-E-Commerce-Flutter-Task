@@ -4,7 +4,7 @@ import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
 import 'package:simple_ecommerce_flutter_task/core/manager/language_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/local/cache_helper.dart';
-import 'package:simple_ecommerce_flutter_task/core/theme/theme_cubit.dart';
+import 'package:simple_ecommerce_flutter_task/core/theme/theme_reveal_provider.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/views/login_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/settings/views/add_product_to_store_view.dart';
@@ -47,7 +47,6 @@ class _SettingsViewState extends State<SettingsView>
 
   @override
   Widget build(BuildContext context) {
-    final themeCubit = context.read<ThemeCubit>();
     final languageCubit = context.read<LanguageCubit>();
     return SingleChildScrollView(
       child: SizedBox(
@@ -110,8 +109,8 @@ class _SettingsViewState extends State<SettingsView>
                         SettingsCardItem(
                           icon: Icons.color_lens_outlined,
                           title: "change_theme",
-                          onTap: () => themeCubit.setTheme(
-                              themeCubit.state is ThemeLight ? true : false),
+                          onTap: () =>
+                              ThemeRevealProvider.of(context)!.reveal(),
                         ),
                         settingsDivider(),
                         SettingsCardItem(
