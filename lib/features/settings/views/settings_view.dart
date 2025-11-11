@@ -6,7 +6,8 @@ import 'package:simple_ecommerce_flutter_task/core/manager/language_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/local/cache_helper.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/theme_reveal_provider.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
-import 'package:simple_ecommerce_flutter_task/features/auth/views/login_view.dart';
+import 'package:simple_ecommerce_flutter_task/features/auth/views/login_layout.dart';
+import 'package:simple_ecommerce_flutter_task/features/auth/views/login_mobile_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/settings/views/add_product_to_store_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/settings/views/widgets/settings_card_item.dart';
 import 'package:simple_ecommerce_flutter_task/features/settings/views/widgets/settings_divider.dart';
@@ -129,7 +130,8 @@ class _SettingsViewState extends State<SettingsView>
                           title: "logout",
                           onTap: () async {
                             await CacheHelper.instance.deleteAll();
-                            navigateAndRemoveUntil(context, const LoginView());
+                            navigateAndRemoveUntil(
+                                context, const LoginLayout());
                           },
                         ),
                       ],

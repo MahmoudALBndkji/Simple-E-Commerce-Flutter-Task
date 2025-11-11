@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simple_ecommerce_flutter_task/core/design/size_config.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
-import 'package:simple_ecommerce_flutter_task/core/constants/dimensions.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/font_weight_helper.dart';
 
 abstract class TextStyles {

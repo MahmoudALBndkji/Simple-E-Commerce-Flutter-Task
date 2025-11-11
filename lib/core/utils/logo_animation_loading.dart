@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/dimensions.dart';
+import 'package:simple_ecommerce_flutter_task/core/design/image_dimensions.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
 import 'package:simple_ecommerce_flutter_task/core/utils/assets.dart';
 
@@ -62,7 +63,7 @@ class _LogoAnimationLoadingState extends State<LogoAnimationLoading>
                   offset: Offset(0, _animation.value),
                   child: Image.asset(
                     AssetsImage.logo,
-                    width: widthScreen(context) / 2,
+                    width: imageDimensions(context),
                   ),
                 );
               },

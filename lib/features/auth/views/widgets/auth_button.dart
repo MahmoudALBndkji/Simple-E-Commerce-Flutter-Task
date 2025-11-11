@@ -14,7 +14,7 @@ Widget authButton(
     splashColor: Colors.transparent,
     onTap: voidCallback,
     child: Container(
-      height: widthScreen(context) / 9,
+      height: 50,
       width: widthScreen(context) / width,
       alignment: Alignment.center,
       decoration: BoxDecoration(

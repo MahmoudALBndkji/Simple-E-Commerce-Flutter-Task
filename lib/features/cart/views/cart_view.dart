@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/app_colors.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/dimensions.dart';
-import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
-import 'package:simple_ecommerce_flutter_task/core/widgets/not_found_widget.dart';
+import 'package:simple_ecommerce_flutter_task/core/widgets/empty_cart_widget.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/snack_bar_message.dart';
+import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/cart/views/widgets/footer_final_info.dart';
 import 'package:simple_ecommerce_flutter_task/features/cart/views/widgets/products_list_item.dart';
-import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
 
 class CartView extends StatefulWidget {
   const CartView({super.key});
@@ -74,7 +74,7 @@ class _CartViewState extends State<CartView> with TickerProviderStateMixin {
         HomeCubit hCubit = HomeCubit.get(context);
         return hCubit.products.isEmpty
             ? Center(
-                child: NotFoundWidget(
+                child: EmptyCartWidget(
                   message: "add_to_cart",
                   axisColumn: MainAxisAlignment.center,
                 ),

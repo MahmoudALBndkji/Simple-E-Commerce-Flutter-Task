@@ -14,14 +14,14 @@ import 'package:simple_ecommerce_flutter_task/features/auth/views/widgets/login_
 import 'package:simple_ecommerce_flutter_task/features/auth/views/widgets/login_username_field.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/views/widgets/my_scroll_behavior.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class LoginMobileView extends StatefulWidget {
+  const LoginMobileView({super.key});
 
   @override
-  State<StatefulWidget> createState() => _LoginViewState();
+  State<StatefulWidget> createState() => _LoginMobileViewState();
 }
 
-class _LoginViewState extends State<LoginView>
+class _LoginMobileViewState extends State<LoginMobileView>
     with SingleTickerProviderStateMixin {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late AnimationController _controller;
