@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/styles.dart';
-import 'package:simple_ecommerce_flutter_task/core/theme/theme_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/widgets/product_search_delegate.dart';
 
-class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
+class HomeDesktopAppbar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onThemePressed;
-  const HomeAppbar({super.key, required this.onThemePressed});
+  const HomeDesktopAppbar({super.key, required this.onThemePressed});
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +21,22 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
             style: TextStyles.font24TextGreyBold(context)
                 .copyWith(color: Colors.white),
           ),
-          actions: hCubit.screenIndex != 2
+          actions: hCubit.screenIndex == 0
               ? [
-                  BlocBuilder<ThemeCubit, ThemeState>(
-                    builder: (context, themeState) {
-                      return IconButton(
-                        icon: Icon(themeState is ThemeLight
-                            ? Icons.dark_mode
-                            : Icons.light_mode),
-                        onPressed: onThemePressed,
-                      );
-                    },
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(end: 10.0),
+                    child: IconButton(
+                      icon: Icon(Icons.search),
+                      onPressed: () {
+                        showSearch(
+                          context: context,
+                          delegate: ProductSearchDelegate(
+                            products: hCubit.visibleProducts,
+                            homeCubit: hCubit,
+                          ),
+                        );
+                      },
+                    ),
                   )
                 ]
               : null,

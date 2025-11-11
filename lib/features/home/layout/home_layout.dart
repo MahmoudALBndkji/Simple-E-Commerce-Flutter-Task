@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_ecommerce_flutter_task/core/design/size_config.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/circular_clipper.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/theme_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/core/theme/theme_reveal_provider.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/widgets/bottom_nav_bar/custom_bottom_navigation_bar.dart';
-import 'package:simple_ecommerce_flutter_task/features/home/widgets/home_appbar.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/widgets/home_desktop_appbar.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/widgets/drawer/home_desktop_drawer.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/widgets/home_mobile_appbar.dart';
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({super.key});
@@ -54,12 +57,18 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
     final width = MediaQuery.of(context).size.width;
     return BlocBuilder<ThemeCubit, ThemeState>(
       builder: (context, themeState) {
+        final isTableOrBigger =
+            MediaQuery.sizeOf(context).width > SizeConfig.tablet;
         return ThemeRevealProvider(
           reveal: () => _animateThemeChange(context),
           child: Scaffold(
-            appBar:
-                HomeAppbar(onThemePressed: () => _animateThemeChange(context)),
+            appBar: isTableOrBigger
+                ? HomeDesktopAppbar(
+                    onThemePressed: () => _animateThemeChange(context))
+                : HomeMobileAppbar(
+                    onThemePressed: () => _animateThemeChange(context)),
             backgroundColor: _backgroundBefore,
+            drawer: isTableOrBigger ? HomeDesktopDrawer() : null,
             body: Stack(
               children: [
                 Container(color: _backgroundBefore),
@@ -79,7 +88,8 @@ class _HomeLayoutState extends State<HomeLayout> with TickerProviderStateMixin {
                 ),
               ],
             ),
-            bottomNavigationBar: customBottomNavigationBar(),
+            bottomNavigationBar:
+                isTableOrBigger ? null : customBottomNavigationBar(),
           ),
         );
       },

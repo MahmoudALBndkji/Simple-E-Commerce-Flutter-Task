@@ -18,10 +18,16 @@ class HomeCubit extends Cubit<HomeState> {
   final ApiService service;
   static HomeCubit get(context) => BlocProvider.of(context);
   int screenIndex = 0;
+  int activeIndex = 0;
 
   void changeScreenIndex(int index) {
     screenIndex = index;
     emit(ChangeScreenIndexState(index: index));
+  }
+
+  void changeActiveIndex(int index) {
+    activeIndex = index;
+    emit(HomeInitial());
   }
 
   List<Widget> screens = [
