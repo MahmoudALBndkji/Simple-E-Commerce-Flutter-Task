@@ -63,7 +63,7 @@ class _ProductsResponsiveViewState extends State<ProductsResponsiveView> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: widget.crossAxisCount,
                     childAspectRatio:
-                        widget.crossAxisCount == 2 ? 1.2 / 2.2 : 1.2 / 1.8,
+                        widget.crossAxisCount == 2 ? 1.2 / 2.5 : 1.2 / 1.8,
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 20,
                   ),

@@ -8,6 +8,7 @@ import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.d
 import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
 import 'package:simple_ecommerce_flutter_task/core/utils/logo_animation_loading.dart';
 import 'package:simple_ecommerce_flutter_task/core/widgets/navigation.dart';
+import 'package:simple_ecommerce_flutter_task/core/widgets/snack_bar_message.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/view_model/authentication_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/auth/views/widgets/auth_button.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/layout/home_layout.dart';
@@ -50,25 +51,14 @@ class LoginButton extends StatelessWidget {
           );
         } else if (state is LoginSucessState) {
           Navigator.pop(context);
-          QuickAlert.show(
-            barrierDismissible: false,
-            context: context,
-            type: QuickAlertType.success,
-            title: "operation_success".tr(context),
-            confirmBtnText: "done".tr(context),
-            text: "login_successfully".tr(context),
-            animType: QuickAlertAnimType.slideInDown,
+          customSnackBar(context: context, keyLanguage: "operation_success");
+          navigateAndRemoveUntil(
+            context,
+            BlocProvider(
+              create: (context) => HomeCubit(service: ApiService()),
+              child: const HomeLayout(),
+            ),
           );
-          Future.delayed(const Duration(milliseconds: 1000), () async {
-            Navigator.pop(context);
-            navigateAndRemoveUntil(
-              context,
-              BlocProvider(
-                create: (context) => HomeCubit(service: ApiService()),
-                child: const HomeLayout(),
-              ),
-            );
-          });
         }
       },
       builder: (context, state) {

@@ -69,6 +69,7 @@ class _CartViewState extends State<CartView> with TickerProviderStateMixin {
             children: [
               Expanded(child: SizedBox.shrink()),
               Expanded(
+                flex: 2,
                 child: CartViewBody(
                   slidingAnimationProducts: slidingAnimationProducts,
                   slidingAnimationFooterFinal: slidingAnimationFooterFinal,
