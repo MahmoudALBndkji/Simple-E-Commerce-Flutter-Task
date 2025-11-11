@@ -67,85 +67,90 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8),
-        Center(
-          child: BlocBuilder<HomeCubit, HomeState>(
-            builder: (context, state) {
-              HomeCubit hCubit = HomeCubit.get(context);
-              return AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                height: 36,
-                decoration: BoxDecoration(
-                  color: primaryColor.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(9),
-                  border: Border.all(
-                    color: primaryColor.withValues(alpha: 0.7),
-                    width: 1.5,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius: const BorderRadius.horizontal(
-                            left: Radius.circular(18)),
-                        onTap: () => hCubit.removeProductFromCart(product),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 8),
-                          child: Icon(
-                            Icons.remove,
-                            size: 16,
-                            color: Theme.of(context).iconTheme.color,
-                          ),
-                        ),
-                      ),
+        Spacer(),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20.0),
+          child: Center(
+            child: BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+                HomeCubit hCubit = HomeCubit.get(context);
+                return AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  height: 36,
+                  decoration: BoxDecoration(
+                    color: primaryColor.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(9),
+                    border: Border.all(
+                      color: primaryColor.withValues(alpha: 0.7),
+                      width: 1.5,
                     ),
-                    AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 200),
-                      transitionBuilder:
-                          (Widget child, Animation<double> animation) {
-                        return ScaleTransition(
-                          scale: animation,
-                          child: child,
-                        );
-                      },
-                      child: Text(
-                        hCubit.containsProduct(product.id ?? 0)
-                            ? "${hCubit.getCurrentProduct(product.id ?? 0).quantity}"
-                            : "${product.quantity}",
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: const BorderRadius.horizontal(
+                              left: Radius.circular(18)),
+                          onTap: () => hCubit.removeProductFromCart(product),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                            child: Icon(
+                              Icons.remove,
+                              size: 16,
                               color: Theme.of(context).iconTheme.color,
                             ),
-                      ),
-                    ),
-                    Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius: const BorderRadius.horizontal(
-                            right: Radius.circular(18)),
-                        onTap: () => hCubit.addProductToCart(product),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 8),
-                          child: Icon(
-                            Icons.add,
-                            size: 16,
-                            color: Theme.of(context).iconTheme.color,
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            },
+                      AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 200),
+                        transitionBuilder:
+                            (Widget child, Animation<double> animation) {
+                          return ScaleTransition(
+                            scale: animation,
+                            child: child,
+                          );
+                        },
+                        child: Text(
+                          hCubit.containsProduct(product.id ?? 0)
+                              ? "${hCubit.getCurrentProduct(product.id ?? 0).quantity}"
+                              : "${product.quantity}",
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme.of(context).iconTheme.color,
+                                  ),
+                        ),
+                      ),
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: const BorderRadius.horizontal(
+                              right: Radius.circular(18)),
+                          onTap: () => hCubit.addProductToCart(product),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                            child: Icon(
+                              Icons.add,
+                              size: 16,
+                              color: Theme.of(context).iconTheme.color,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
+        Spacer(),
       ],
     );
   }

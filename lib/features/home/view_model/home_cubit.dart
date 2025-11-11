@@ -2,13 +2,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_ecommerce_flutter_task/core/constants/constants.dart';
+import 'package:simple_ecommerce_flutter_task/core/design/adaptive_layout.dart';
 import 'package:simple_ecommerce_flutter_task/core/languages/app_localizations.dart';
 import 'package:simple_ecommerce_flutter_task/core/log/logger.dart';
 import 'package:simple_ecommerce_flutter_task/core/network/check_is_success.dart';
 import 'package:simple_ecommerce_flutter_task/core/services/api_service.dart';
 import 'package:simple_ecommerce_flutter_task/features/cart/views/cart_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/model/product_model.dart';
-import 'package:simple_ecommerce_flutter_task/features/home/views/products_view.dart';
+import 'package:simple_ecommerce_flutter_task/features/home/views/products_responsive_view.dart';
 import 'package:simple_ecommerce_flutter_task/features/settings/views/settings_view.dart';
 
 part 'home_state.dart';
@@ -18,20 +19,20 @@ class HomeCubit extends Cubit<HomeState> {
   final ApiService service;
   static HomeCubit get(context) => BlocProvider.of(context);
   int screenIndex = 0;
-  int activeIndex = 0;
 
   void changeScreenIndex(int index) {
     screenIndex = index;
     emit(ChangeScreenIndexState(index: index));
   }
 
-  void changeActiveIndex(int index) {
-    activeIndex = index;
-    emit(HomeInitial());
-  }
-
   List<Widget> screens = [
-    const ProductsView(),
+    AdaptiveLayout(
+      mobileLayout: (context) =>
+          const ProductsResponsiveView(crossAxisCount: 2),
+      tableLayout: (context) => const ProductsResponsiveView(crossAxisCount: 4),
+      desktopLayout: (context) =>
+          const ProductsResponsiveView(crossAxisCount: 6),
+    ),
     const CartView(),
     const SettingsView(),
   ];

@@ -10,14 +10,15 @@ import 'package:simple_ecommerce_flutter_task/features/home/widgets/product_card
 import 'package:simple_ecommerce_flutter_task/features/home/widgets/category_filter_chips.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class ProductsView extends StatefulWidget {
-  const ProductsView({super.key});
+class ProductsResponsiveView extends StatefulWidget {
+  const ProductsResponsiveView({super.key, required this.crossAxisCount});
+  final int crossAxisCount;
 
   @override
-  State<ProductsView> createState() => _ProductsViewState();
+  State<ProductsResponsiveView> createState() => _ProductsResponsiveViewState();
 }
 
-class _ProductsViewState extends State<ProductsView> {
+class _ProductsResponsiveViewState extends State<ProductsResponsiveView> {
   @override
   void initState() {
     context.read<HomeCubit>().getAllProducts(context: context);
@@ -59,9 +60,10 @@ class _ProductsViewState extends State<ProductsView> {
               Expanded(
                 child: GridView.builder(
                   itemCount: products.length,
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    childAspectRatio: 1.2 / 2,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: widget.crossAxisCount,
+                    childAspectRatio:
+                        widget.crossAxisCount == 2 ? 1.2 / 2.2 : 1.2 / 1.8,
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 20,
                   ),

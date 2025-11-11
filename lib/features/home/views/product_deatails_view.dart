@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_ecommerce_flutter_task/core/design/size_config.dart';
 
 import 'package:simple_ecommerce_flutter_task/features/home/view_model/home_cubit.dart';
 import 'package:simple_ecommerce_flutter_task/features/home/widgets/products_details_view/products_details_appbar.dart';
@@ -28,11 +29,21 @@ class _ProductDeatailsViewState extends State<ProductDeatailsView> {
 
   @override
   Widget build(BuildContext context) {
+    final isTableOrBigger =
+        MediaQuery.sizeOf(context).width > SizeConfig.tablet;
     return BlocProvider.value(
       value: widget.homeCubit,
       child: Scaffold(
         appBar: const ProductsDetailsAppbar(),
-        body: ProductsDetailsBody(),
+        body: isTableOrBigger
+            ? Row(
+                children: [
+                  Expanded(child: SizedBox.shrink()),
+                  Expanded(child: ProductsDetailsBody()),
+                  Expanded(child: SizedBox.shrink()),
+                ],
+              )
+            : ProductsDetailsBody(),
       ),
     );
   }

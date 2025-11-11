@@ -50,17 +50,17 @@ class _DrawerItemsListViewState extends State<DrawerItemsListView> {
             DrawerItem(
               function: () => changeIndexFromDrawer(homeBloc, 0),
               drawerItemModel: items[0],
-              isActive: homeBloc.activeIndex == 0,
+              isActive: homeBloc.screenIndex == 0,
             ),
             DrawerItem(
               function: () => changeIndexFromDrawer(homeBloc, 1),
               drawerItemModel: items[1],
-              isActive: homeBloc.activeIndex == 1,
+              isActive: homeBloc.screenIndex == 1,
             ),
             DrawerItem(
               function: () => changeIndexFromDrawer(homeBloc, 2),
               drawerItemModel: items[2],
-              isActive: homeBloc.activeIndex == 2,
+              isActive: homeBloc.screenIndex == 2,
             ),
             DrawerItem(
               trailing: Text(
@@ -73,7 +73,7 @@ class _DrawerItemsListViewState extends State<DrawerItemsListView> {
                   .read<LanguageCubit>()
                   .changeLanguage(currentLangAr() ? "en" : "ar"),
               drawerItemModel: items[3],
-              isActive: homeBloc.activeIndex == 3,
+              isActive: homeBloc.screenIndex == 3,
             ),
             DrawerItem(
               isLogout: true,
@@ -82,7 +82,7 @@ class _DrawerItemsListViewState extends State<DrawerItemsListView> {
                 navigateAndRemoveUntil(context, const LoginLayout());
               },
               drawerItemModel: items[4],
-              isActive: homeBloc.activeIndex == 4,
+              isActive: homeBloc.screenIndex == 4,
             ),
           ],
         );
@@ -92,7 +92,7 @@ class _DrawerItemsListViewState extends State<DrawerItemsListView> {
 }
 
 void changeIndexFromDrawer(HomeCubit homeBloc, int currentIndex) {
-  if (homeBloc.activeIndex != currentIndex) {
-    homeBloc.changeActiveIndex(currentIndex);
+  if (homeBloc.screenIndex != currentIndex) {
+    homeBloc.changeScreenIndex(currentIndex);
   }
 }
